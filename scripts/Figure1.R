@@ -1,4 +1,3 @@
-
 graphics.off() #
 rm(list = ls()) #deleting all variables from work space
 
@@ -7,18 +6,13 @@ library(rstudioapi)
 library(multcompView)
 #load statistics routine adapted from package visStatistics
 # https://cran.r-project.org/web/packages/visStatistics/index.html
-source("./Kruskal_Wallis_visualization.R")
+source("./scripts/Kruskal_Wallis_visualization.R")
 
 
 ## define directories ------
-currentpath <- getActiveDocumentContext()$path
-setwd(dirname(currentpath))
-codedirec=dirname(currentpath)
-setwd('..')
-upperdirectory=getwd()
-figdirec=paste(upperdirectory,"/figures",sep="") #directory of figures
-csvdirec=paste(upperdirectory,"/csv",sep="") # directory of data
-directory=setwd(codedirec)
+codedirec=c("./scripts")
+figdirec=c("./figures") #directory of figures
+csvdirec=c("./data") # directory of data
 
 ## global graphics parameters ------
 cexsize = 1  #variable defining size of cexsize
@@ -80,16 +74,14 @@ names(endo_only_flux)[40] <- "flowWords"
 
 # Plotting------
 graphics.off()
-setwd(figdirec)
 j=0
 for (i in listm){
   #Wilcoxon for all cases
-  setwd(figdirec)
+  # setwd(figdirec)
   j=j+1
 
   openGraph()
   res_krus_3_conditions=vis_Kruskal_Wallis_clusters(endo_only_flux[,i],endo_only_flux$flow,alpha=0.05,xlab="",ylab=names_for_plots[j],cex=1,notch=F)
-  saveGraph(paste("Kruskal_3_conditions",variable.names(endo_only_flux[i]),sep=""),type=figtype)
+  saveGraph(paste(figdirec, "/Kruskal_3_conditions",variable.names(endo_only_flux[i]),sep=""),type=figtype)
 
 }
-setwd(codedirec)
