@@ -1,4 +1,4 @@
-# Quantification of cell area, shapes andn cell orientation in low (2 dyne/cm2), physiolgoical (30 dyne/cm2) and high (80 dyne/cm2) wall shear stress conditions 
+# Quantification of cell area, shapes andn cell orientation in low (2 dyne/cm2), physiological (30 dyne/cm2) and high (80 dyne/cm2) wall shear stress conditions 
 
 ## Reproduction of  Figure 1 B-E
 
