@@ -4,7 +4,7 @@
 .Ruserdata
 
 # User Specific
-figures/ #ignore entire figures folder
+#figures/ #ignore entire figures folder
 figures/*.pdf
 
 
