@@ -8,7 +8,7 @@ Code and data used for the quantification of cell shape changes and cell orienta
 
 1. Clone the repo
 
-2. Install the required R packages: `rstudioapi` and `multcompView`
+2. Install the required R packages: `multcompView`
 
 3. Create a new directory './figures'
 
