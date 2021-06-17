@@ -8,7 +8,7 @@
 
 3. Source the code 'Figure1.R' in the folder ./scripts.
 
-The last step creates the plots used in Figure 1 B-E. The plots are automatically stored in the folder './figures' in the pdf format.
+The last step creates the plots shown in Figure 1 B-E. These plots are automatically stored in the folder './figures' in the pdf format.
 
 ## Reference
 
