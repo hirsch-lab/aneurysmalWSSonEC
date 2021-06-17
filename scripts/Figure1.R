@@ -1,22 +1,22 @@
 #GNU General Public License v3.0
 #Copyright (c) 2021 Sabine Schilling
 #Feedback highly welcome: sabineschilling@gmx.ch
-
 # clear variables and close graphics----
 graphics.off() #
 rm(list = ls()) #deleting all variables from work space
 
-## load library-------
-library(multcompView)
-
-#load statistics routine adapted from package visStatistics----
-# https://cran.r-project.org/web/packages/visStatistics/index.html
-source("./scripts/Kruskal_Wallis_visualization.R")
+## load libraries-------
+library(multcompView) #letters in post-hoc pairwise.wilcox.test
+library(rstudioapi) # allows to  set current directory to  source file location
 
 ## define directories ------
-codedirec=c("./scripts")
-figdirec=c("./figures") #directory of figures
-csvdirec=c("./data") # directory of data
+currentpath <- getActiveDocumentContext()$path
+setwd(dirname(currentpath))
+codedirec=dirname(currentpath)
+setwd('..')
+upperdirectory=getwd()
+figdirec=paste(upperdirectory,"/figures",sep="") #directory of figures
+csvdirec=paste(upperdirectory,"/data",sep="")
 
 ## global graphics parameters ------
 cexsize = 1  #variable defining size of cexsize
@@ -29,6 +29,10 @@ par(bg=background,fg=foreground,col.lab=foreground,col.axis=foreground,
     cex.axis=cexsize,cex.lab=cexsize, lwd=lwdsize, oma = c(0, 0, 2, 0),mfrow = c(1, 1),
     xaxs="i",family = "Times New Roman")
 default_graphical_parameters=par() #makes copy of current settings
+
+#load statistics routine adapted from package visStatistics----
+# https://cran.r-project.org/web/packages/visStatistics/index.html
+source(paste(codedirec,"/Kruskal_Wallis_visualization.R",sep=""))
 
 ## load experimental data ------
 experimental_inputfile=paste(csvdirec,"/raw_data_endothelial_Frontiers.csv",sep="") #adapt this line to your directory
