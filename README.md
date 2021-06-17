@@ -12,7 +12,7 @@ Code and data used for the quantification of cell shape changes and cell orienta
 
 3. Create a new directory './figures'
 
-4. Run the script 'Figure1.R'
+4. Run the script './scripts/Figure1.R'
 
 This will store the plots from Figure 1 B-E in './figures' in the pdf format.
 
