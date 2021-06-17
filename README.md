@@ -1,8 +1,6 @@
-# aneurysmal wall shear stress on endothelial cell
+# Quantification of cell area, shapes andn cell orientation in low (2 dyne/cm2), physiolgoical (30 dyne/cm2) and high (80 dyne/cm2) wall shear stress conditions 
 
-Code and data used for the quantification of cell shape changes and cell orientation.
-
-## Reproduce Figure 1
+## Reproduction of  Figure 1 B-E
 
 0. (optional but recommended) Fork the repository.
 
