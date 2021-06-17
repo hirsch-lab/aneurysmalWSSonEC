@@ -27,8 +27,8 @@ par(bg=background,fg=foreground,col.lab=foreground,col.axis=foreground,
 default_graphical_parameters=par() #makes copy of current settings
 
 ## load experimental data ------
-experimental_inputfile=paste(csvdirec,"/20171127endothelial.csv",sep="") #adapt this line to your directory
-endo=read.csv(experimental_inputfile,header=TRUE,sep=";",stringsAsFactors = F)
+experimental_inputfile=paste(csvdirec,"/raw_data_endothelial.csv",sep="") #adapt this line to your directory
+endo=read.csv(experimental_inputfile,header=TRUE,sep=",",stringsAsFactors = F)
 listm=c(6,23,24,35,37,38) #column numbers in experimental data sheet from FIJI
 #6: area
 #23: Angle
@@ -38,7 +38,6 @@ listm=c(6,23,24,35,37,38) #column numbers in experimental data sheet from FIJI
 #38 Roundness: =4*pi*area/(pi*major axis)^2:
 
 ## Create column with words instead of number codes for graphical output ------
-endo$FlowWords[which(endo$Flow==0)]="0 dynes/cm^2"
 endo$FlowWords[which(endo$Flow==1)]="30 dynes/cm^2"
 endo$FlowWords[which(endo$Flow==2)]="2 dynes/cm^2"
 endo$FlowWords[which(endo$Flow==3)]="80 dynes/cm^2"
@@ -64,13 +63,10 @@ endo$flow=endo$FlowWords
 
 flownamesreduced_=c("2 dynes/cm^2","30 dynes/cm^2","80 dynes/cm^2")
 
-
-#subset only 2,30 and 90 dynes -----
-endo_only_flux=subset(endo,endo$Flow==1 |endo$Flow==2 |endo$Flow==3)
-endo_only_flux=droplevels(endo_only_flux)
-names(endo_only_flux)[2] <- "flow" #name change for density plots
-names(endo_only_flux)[3] <- "flowNumeric"
-names(endo_only_flux)[40] <- "flowWords"
+#name change for density plots
+names(endo)[2] <- "flow"
+names(endo)[3] <- "flowNumeric"
+names(endo)[40] <- "flowWords"
 
 # Plotting------
 graphics.off()
@@ -81,7 +77,7 @@ for (i in listm){
   j=j+1
 
   openGraph()
-  res_krus_3_conditions=vis_Kruskal_Wallis_clusters(endo_only_flux[,i],endo_only_flux$flow,alpha=0.05,xlab="",ylab=names_for_plots[j],cex=1,notch=F)
-  saveGraph(paste(figdirec, "/Kruskal_3_conditions",variable.names(endo_only_flux[i]),sep=""),type=figtype)
+  res_krus_3_conditions=vis_Kruskal_Wallis_clusters(endo[,i],endo$flow,alpha=0.05,xlab="",ylab=names_for_plots[j],cex=1,notch=F)
+  saveGraph(paste(figdirec, "/Kruskal_3_conditions",variable.names(endo[i]),sep=""),type=figtype)
 
 }
