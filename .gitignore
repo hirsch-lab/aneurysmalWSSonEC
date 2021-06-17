@@ -1,0 +1,10 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+
+# User Specific
+figures/ #ignore entire figures folder
+figures/*.pdf
+
+
