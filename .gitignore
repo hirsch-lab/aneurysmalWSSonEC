@@ -5,5 +5,6 @@
 
 # User Specific
 figures/*.png # don't track changes in figures
-data/original/*
+figures/*.pdf
+data/*.csv
 
