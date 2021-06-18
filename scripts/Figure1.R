@@ -60,9 +60,11 @@ endo$Angle[which(endo$Angle<0)]=180-endo$Angle[which(endo$Angle<0)]
 #project into first quadrant
 endo$Angle=projectAngleToFirstQuadrant(endo$Angle)
 
-#Sort data by FlowWords----
+#Sort data by column FlowWords----
 endosort <- endo[order(endo$FlowWords),]
 
+
+#Generate plots for area, cirularity, aspect ratio and angle-----
 j=0
 for (i in listm){
   #Wilcoxon for all cases
