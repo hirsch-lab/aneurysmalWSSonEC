@@ -53,10 +53,11 @@ names_for_plots=c("area in squared pixels" ,"circularity","aspect ratio","angle"
 #names_for_plots=c("")
 
 ##Angle---------
-## change angle for 2 dynes and 30 dynes/cm^2, correcting for different plate orientation in these flow conditions
+## change angle by 90 degrees for some of the plates in 2 dyne/cm^2 and 30 dyne/cm^2, correcting for different plate orientation in these flow conditions
 endo$Angle[which(endo$cellComment=="change")]=endo$Angle[which(endo$cellComment=="change")]-90
 #correct for negative angles----
 endo$Angle[which(endo$Angle<0)]=180-endo$Angle[which(endo$Angle<0)]
+#project into first quadrant
 endo$Angle=projectAngleToFirstQuadrant(endo$Angle)
 
 #Sort data by FlowWords----
